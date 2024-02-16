@@ -17,8 +17,11 @@ import Ur from './Use_Ref';
 import Ls from './LocalStorage';
 import Ss from './Session_Storage';
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import Home from './Router/Home';
-import About from './Router/About';
+import Home from './Home';
+import About from './Navbar/About';
+import CrudOp from './Crud';
+import NV from './Navbar/Navbar';
+import NotFound from './Navbar/Page404';
 /* Parent To Child (End)*/
 
 function App() {
@@ -33,10 +36,10 @@ function App() {
    {
       alert(data);
    }
- */
-  return (
-      <div>
-      { /*  <BrowserRouter>
+
+   //Alag che Navbar
+   <App />
+        <BrowserRouter>
          <h1>Router</h1>
          <Link to="Home">Home</Link><br />
          <Link to="About">About</Link>
@@ -44,7 +47,20 @@ function App() {
                <Route path='/Home' element={<Home />}>Home</Route>
                <Route path='/About' element={<About />}>About</Route>
             </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter>
+      
+ */
+  return (
+      <div>
+      <BrowserRouter>
+      <Routes>
+         <Route path='/' element={<NV />}></Route>
+         <Route path='/Home' element={<Home />}></Route>
+         <Route path='/About' element={<About />}></Route>
+         <Route path='/Team' element={<Team />}></Route>
+         <Route path='/*' element={<NotFound />}></Route>
+      </Routes>
+   </BrowserRouter>
       </div>
   )
 }

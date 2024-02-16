@@ -15,3 +15,4 @@ function Parent()
    </React.Fragment>
    )
 }
+export default Parent;
